@@ -61,15 +61,15 @@
 	<context:component-scan base-package="com.whitehorse.qingzhi">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-	<!-- 通过@Autowired方式将可以注入接口实例 -->
+	<!-- 通过@Autowired方式注入接口实例 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		<property name="basePackage" value="com.whitehorse.qingzhi.dao" />
 	</bean>
 	<!-- 配置SessionTemplate，已封装了繁琐的数据操作 -->
-	<!-- <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean> -->
+	</bean>
 	<!-- 配置sessionFactory -->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
